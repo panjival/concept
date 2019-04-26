@@ -1,0 +1,29 @@
+<div class="container">
+	<%= form_with model: @jenis_kursu, html: {class: 'form-horizontal'} do |f| %>
+		<div class="form-group">
+			<%= f.label "Jenis Kursus", class: 'control-label' %>
+			<%= f.text_field :jenis_kursus, placeholder: "Jenis Kursus", class: 'form-control',:required => true %>
+		</div>
+		<div class="form-group">
+			<%= f.label "Lama Belajar", class: 'control-label' %>
+			<%= f.select :lama_belajar, options_for_select([["1 Bulan",Integer(1)],
+				["2 Bulan",Integer(2)],
+				["3 Bulan",Integer(3)],
+				["4 Bulan",Integer(4)],
+				["5 Bulan",Integer(5)],
+				["6 Bulan",Integer(6)],
+				["7 Bulan",Integer(7)],
+				["8 Bulan",Integer(8)],
+				["9 Bulan",Integer(9)],
+				["10 Bulan",Integer(10)],
+				["11 Bulan",Integer(11)],	
+				["12 Bulan",Integer(12)]], :selected => f.object.lama_belajar), { :include_blank => 'Kosong' },class:'form-control', :required => true %>
+			</div>
+		<div class="form-group">
+			<%= f.label "Tarif", class: 'control-label' %>
+			<%= f.number_field :tarif, placeholder: "Tarif", class: 'form-control',:required => true %>
+		</div>
+			<%= link_to 'kembali', jenis_kursus_path, {class: 'btn btn-default'} %>
+			<%= f.submit 'Save', class: 'btn btn-primary' %>
+	<% end %>
+</div>

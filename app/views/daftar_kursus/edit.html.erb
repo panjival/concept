@@ -1,0 +1,20 @@
+<body class="dk">
+<h1>Edit Daftar Kursus</h1>
+<div class="container">
+ <%= form_with model: @daftar_kursu do |f| %>
+   <div class="form-group">
+        <%= f.label "Nama Murid" %>
+        <%= f.collection_select(:murid_id, Murid.all, :id, :nama, { :prompt => 'Pilih Murid', :selected => @daftar_kursu.murid_id}, { class: 'form-control'}) %>   
+   </div>
+   <div class="form-group">
+        <%= f.label "Jenis Kursus" %>
+        <%= f.collection_select(:jenis_kursu_id, JenisKursu.all, :id, :jenis_kursus, { :prompt => 'Pilih Jenis Kursus', :selected => @daftar_kursu.jenis_kursu_id}, { class: 'form-control'}) %>
+   </div>
+   <div class="form-group">
+        <%= f.label "Nama Instruktur" %>
+        <%= f.collection_select(:instruktur_id, Instruktur.all, :id, :nama, { :prompt => 'Pilih Instruktur', :selected => @daftar_kursu.instruktur_id}, { class: 'form-control'}) %>       
+   </div>
+        <%= link_to 'kembali', daftar_kursus_path, {class: 'btn btn-default'} %>
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+ <% end %>
+</div>

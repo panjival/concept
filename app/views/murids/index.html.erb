@@ -1,0 +1,57 @@
+<body class="murid">
+<h1 class="font-weight-bold">DAFTAR MURID</h1>
+
+<%# start membuat search %>
+<form class="form-inline">
+  <div class="form-group">
+    <%= form_tag(murids_path, method: :get) do %>
+    <%= text_field_tag :term, params[:term], class:'form-control', placeholder: 'Cari Murid' %>
+    <%= submit_tag 'Cari', class:'btn btn-primary', nama: nil %>
+    <% end %>
+  </div>
+</form>
+<%# end search %>
+
+<div class="sright">
+    <%= link_to 'ADD MURID', muridsnew_path, class: 'btn btn-primary', role: 'button' %>
+</div>
+
+<%# <div class="container"> %>
+<div class="table-responsive-sm">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">NO</th>
+      <th scope="col">NAMA</th>
+      <th scope="col">JENIS KELAMIN</th>
+      <th scope="col">JADWAL</th>
+      <th scope="col">NOMOR TELPON</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @murids.each_with_index do |f,index| %>
+    <tr class="text-capitalize">
+        <th scope="row"><%= index +1 %></th>
+        <td><%= f.nama %></td>
+        <td><%= f.jenis_kelamin==1 ? 'Laki-laki' :
+        (f.jenis_kelamin==2 ? 'Perempuan' : 'Kosong') %></td>
+        <td><%= f.jadwal %></td>
+        <td><%= f.no_tlp %></td>
+        <td><%= link_to 'show', f, class:'btn btn-primary' %></td> 
+        <%# memunculkan dan menghilangkan tombol edit dan hapus %>
+        <% if current_user %>
+          <td><%= link_to 'edit', muridsedit_path(f), class:'btn btn-warning' %></td>
+          <td><%= link_to 'delete', muridsdelete_path(f), method: :delete,
+          data: { confirm: 'Are you sure?'}, class:'btn btn-danger' %></td>
+        <% else %>
+        <% end %>
+    </tr>
+<% end %>
+<%= will_paginate @murids, renderer: BootstrapPagination::Rails %>
+</tbody>
+</table>
+
+<%# </div> %>
+</div>
+</body>
+

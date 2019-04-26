@@ -1,0 +1,2 @@
+class DaftarKursu < ApplicationRecord
+end

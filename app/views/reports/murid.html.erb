@@ -1,0 +1,47 @@
+
+<body class="murid">
+
+<form class="form-inline">
+    <div class="form-group">
+        <%= form_tag(reportsmurid_path, method: :get) do %>
+        <%= collection_select(:mur, params[:mur], Murid.all, :id, :nama, { :prompt => 'Select Murid', :selected => params[:mur] }, { class: 'form-control' }) %>
+        <%= submit_tag 'Search', class:'btn btn-primary', name: nil %>
+        <%= link_to "Refresh", reportsmurid_path, class: 'btn btn-danger' %>
+        <% end %>
+    </div>
+</form>
+<% if params[:mur]!=0 %>
+<% @judul=Murid.find_by_sql(["select nama from murids where id=?",params[:mur]]) %>
+<% @judul.each do |j| %>
+<h4>Nama Murid : <%= j.nama %></h4>
+<% end %>
+<% end %>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Jenis Kursus</th>
+      <th scope="col">Nama Instruktur</th>
+      <th scope="col">Lama Belajar</th>
+      <th scope="col">Tarif</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @daftar_kursu.each do |d| %>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= JenisKursu.find(d.jenis_kursu_id).jenis_kursus %> </td>
+      <td><%= Instruktur.find(d.instruktur_id).nama %></td>
+      <td><%= JenisKursu.find(d.jenis_kursu_id).lama_belajar %> Bulan</td>
+      <td><%= JenisKursu.find(d.jenis_kursu_id).tarif %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% @daftar_kursu if params[:mur] %>
+<% @hasil=JenisKursu.find_by_sql(["select sum(tarif) as total from jenis_kursus,daftar_kursus
+where daftar_kursus.jenis_kursu_id=jenis_kursus.id and daftar_kursus.murid_id=?", params[:mur]]) %>
+<% @hasil.each do |h| %>
+<h4>Total Pembayaran : Rp. <%= h.total %> </h4>
+<% end %>
+</body>

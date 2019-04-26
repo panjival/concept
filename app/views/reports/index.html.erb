@@ -1,0 +1,35 @@
+<html>
+<head></head>
+<h3 class="page-header">Report</h3>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<form class="form-inline">
+			<div class="form-group mx-sm-3 mb-2">
+				<%= form_tag(reports_path, method: :get) do %>
+					<%= collection_select(:term, params[:term], Instruktur.all, :id, :nama, { :prompt => 'Select Instruktur', :selected => params[:term] }, { class: 'form-control' }) %>
+					<%= submit_tag 'Search', class:'btn btn-primary', name: nil %>
+					<%= link_to "Refresh", reports_path, class: 'btn btn-danger' %>
+				<% end %>
+			</div>
+		</form>
+  </div>
+  <div class="panel-body">
+		<table width="100%" class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr div style="background-color:#e3f2fd">
+					<th>Nama</th>
+					<th>Jenis Kursus</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @daftar_kursu.each do |daf| %>
+				<tr>
+					<td> <%= Murid.find(daf.murid_id).nama %> </td>
+					<td> <%= JenisKursu.find(daf.jenis_kursu_id).jenis_kursus %> </td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+</html>

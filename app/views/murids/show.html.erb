@@ -1,0 +1,14 @@
+<body class="murid">
+<h4> NAMA          :  <%= @murid.nama %> </h4>
+<h5> JENIS KELMAIN :  <%= @murid.jenis_kelamin==1 ? 'Laki-laki' :
+                          (@murid.jenis_kelamin==2 ? 'Perempuan' : 'Kosong') %></h5>
+<h5> TEMPAT LAHIR  :  <%= @murid.tmp_lahir %> </h5>
+<h5> TANGGAL LAHIR :  <%= @murid.tgl_lahir %></h5>
+<h5> JADWAL        :  <%= @murid.jadwal %> </h5>
+<h5> ALAMAT        :  <%= @murid.alamat %> </h5>
+<h5> NOMOR TELPON  :  <%= @murid.no_tlp %></h5>
+<br>
+
+<%= link_to 'kembali', murids_path, {class: 'btn btn-default'} %>
+<%# <%= link_to "Cetak", murid_path(@murid, format: "pdf") %>
+</body>

@@ -1,0 +1,52 @@
+<h1 class="font-weight-bold"> DAFTAR JENIS KURSUS </h1>
+<%# start search %>
+<form class="form-inline">
+	<div class="form-group">
+		<%= form_tag(jenis_kursus_path, method: :get) do %>
+			<%= text_field_tag :term, params[:term], class:'form-control', placeholder:'Cari Pelajaran' %>
+			<%= submit_tag 'Cari', class:'btn btn-primary', jenis_kursus: nil %>
+		<% end %>
+	</div>
+</form>
+<%# end search %>
+
+<div class="sright">
+	<%= link_to 'ADD KURSUS', new_jenis_kursu_path, class:'btn btn-primary' %>
+</div>
+
+<div class="container">
+<table class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">NO</th>
+			<th scope="col">JENIS KURSUS</th>
+			<th scope="col">LAMA BELAJAR</th>
+			<th scope="col">TARIF</th>    
+		</tr>
+	</thead>
+<tbody>
+	<% @jenis_kursus.each_with_index do |f,index| %>
+		<tr>
+			<th scope="row"><%= index +1 %></th>
+				<td><%= f.jenis_kursus %></td>
+				<td><%= f.lama_belajar==1 ? '1 Bulan' :
+						(f.lama_belajar==2 ? '2 Bulan' :
+						(f.lama_belajar==3 ? '3 Bulan' :
+						(f.lama_belajar==4 ? '4 Bulan' :
+						(f.lama_belajar==5 ? '5 Bulan' :
+						(f.lama_belajar==6 ? '6 Bulan' :
+						(f.lama_belajar==7 ? '7 Bulan' :
+						(f.lama_belajar==8 ? '8 Bulan' :
+						(f.lama_belajar==9 ? '9 Bulan' :
+						(f.lama_belajar==10 ? '10 Bulan' :
+						(f.lama_belajar==11 ? '11 Bulan' :
+						(f.lama_belajar==12 ? '12 Bulan' : 'Kosong'))))))))))) %></td>
+				<td>Rp. <%= f.tarif %></td>   
+				<td><%= link_to 'show', f, class:'btn btn-info'%></td>
+				<td><%= link_to 'edit', edit_jenis_kursu_path(f), class:'btn btn-warning' %></td>
+				<td><%= link_to 'delete', f, method: :delete, data: { confirm: 'Are you sure?'}, class:'btn btn-danger' %></td> 
+		</tr>
+  <% end %>
+</tbody>
+</table>
+</div>

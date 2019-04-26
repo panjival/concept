@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Concept</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+	  <%= favicon_link_tag 'ic/newconcept.png' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<body class="hold-transition skin-blue sidebar-mini">
+ <div class="wrapper">
+    <header class="main-header">
+      <a href="/" class="logo">
+        <span class="logo-mini">
+          <b>C</b>
+          "New"
+        </span>
+        <span class="logo-lg">
+          <b>NEW</b>
+          Concept
+        </span>
+      </a>
+      <nav class="navbar navbar-static-top">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle Navigation</span>
+        </a>
+
+        <%# ------------------start menu for logout---------------- %>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+          <% if current_user %>
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="hidden-xs"><%= current_user.userid %>
+                </span>
+              </a>
+                <ul class="dropdown-menu">
+                  <li class="user-header">
+                    <p> hello <%= current_user.userid %>
+                      <small>Semangat</small>
+                    </p>
+                  </li>
+                  <span>
+                  <li class="user-footer">
+                    <div class="pull-right">
+                      <%= link_to 'Sign out', session_path('active'), method: :delete, class:'btn btn-danger' %>
+                    </div>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <%= link_to 'Sign up', new_user_path, class:'btn btn-info' %>
+                    </div>
+                  </li>
+                  </span>
+                </ul>
+          <% else %>
+            <li class="nav-item"><%=link_to 'Sign in', new_session_path, class:'active_nav-link'%>
+            </li>
+          </li>
+          <% end %>
+          </ul>
+        </div>
+          <%# #  ------------------------------- end menu for logout--------------------- %>
+
+      </nav>
+    </header>
+    <aside class="main-sidebar">
+      <section class="sidebar" style="height: auto;">
+        <%# <form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="cari">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+          </div>
+        </form> %>
+
+        <%# --------------------dropdown start --------------------------- %>
+        <ul class="sidebar-menu tree" data-widget="tree">
+          <li class='header'>Menu</li>
+                              
+          <li>
+              <%= link_to murids_path do %>
+              <i class="fas fa-users"></i><span> Murid </span>
+              <% end %>
+          </li>
+          <li>
+              <%= link_to jkindex_path do %>
+              <i class="fas fa-book"></i><span> Jenis Kursus </span>
+              <% end %>
+          </li>
+          <li>
+              <%= link_to insindex_path do %>
+              <i class="glyphicon glyphicon-user"></i><span>Instruktur </span>
+              <% end %>
+          </li>
+          <li>
+              <%= link_to daftarindex_path do %>
+              <i class="fas fa-clipboard-list"></i><span> Daftar Kursus </span>
+              <% end %>
+          </li>
+          <li class="active treeview menu-open">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fas fa-book-open"></i><span> Report </span>
+                      <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+              </a>
+              <ul class="treeview-menu">
+                  <li>
+                      <%= link_to reportsmurid_path do %>
+                      <i class="fas fa-address-book"></i><span> Report murid </span>
+                      <% end %>
+                  </li>
+              </ul>
+            </li>
+        </ul>
+      </section>
+    </aside>
+    <div class="content-wrapper" style="min-height: 960px;">
+          <%# <%= render 'layouts/navbar' %>
+              
+        <%# <%= render 'layouts/admin' %>
+        <%= render 'layouts/alert' %>
+        <%= yield %>
+        <%# take care of it %>
+
+      
+    </div>
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 2.4.0
+      </div>
+      <strong>Copyright &copy; 2018-2019 <a href="https://www.instagram.com/panjyvp/?hl=en">Panji Valentino Pakan</a>.</strong> All rights
+      reserved.
+    </footer>
+  </div>
+     <%# <%= render 'layouts/footer' %>
+</body>
+</html>

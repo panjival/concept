@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<h1 class="font-weight-bold"> DAFTAR INSTRUKTUR </h1>
+<%# start search %>
+<form class="form-inline">
+  <div class="form-group">
+    <%= form_tag(instrukturs_path, method: :get) do %>
+    <%= text_field_tag :term, params[:term], class:'form-control', placeholder: 'Cari Instruktur' %>
+    <%= submit_tag 'Cari', class:'btn btn-primary', nama: nil %>
+    <% end %>
+  </div>
+</form>
+<%# end search %>
+
+<div class="sright">
+      <%= link_to 'ADD INTRUKTUR', new_instruktur_path, class:'btn btn-primary' %>
+</div>
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+	      <th scope="col"></th>
+	      <th scope="col">NAMA INTRUKTUR</th>
+        <th scope="col">JENIS KELAMIN</th>
+        <th scope="col">NOMOR TELPON</th>
+      </tr>
+    </thead>
+    <tbody>
+	    <% @instrukturs.each_with_index do |f,index| %>
+      <tr>
+	      <th scope="row"><%= index +1 %></th>
+	        <td><%= f.nama %></td>
+          <td><%= f.jenis_kelamin==1 ? 'Laki-laki' :
+                 (f.jenis_kelamin==2 ? 'Perempuan' : 'Kosong') %></td>
+          <td><%= f.no_tlp %></td>
+          
+          <td><%= link_to 'show', f, class:'btn btn-info'%></td>
+          <td><%= link_to 'edit', edit_instruktur_path(f), class:'btn btn-warning' %></td>
+          <td><%= link_to 'delete', f , method: :delete, data: { confirm: 'Are you sure?'}, class:'btn btn-danger' %></td> 
+	    </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</html>

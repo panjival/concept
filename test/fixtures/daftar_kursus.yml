@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_murid: 1
+  id_jenis_kursus: 1
+  id_instruktur: 1
+
+two:
+  id_murid: 1
+  id_jenis_kursus: 1
+  id_instruktur: 1

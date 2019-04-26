@@ -1,0 +1,12 @@
+<body class="instruktur">
+<h4> NAMA          :  <%= @instruktur.nama %> </h4>
+<h5> JENIS KELMAIN :  <%= @instruktur.jenis_kelamin==1 ? 'Laki-laki' :
+                          (@instruktur.jenis_kelamin==2 ? 'Perempuan' : 'Kosong') %></h5>
+<h5> TEMPAT LAHIR  :  <%= @instruktur.tmp_lahir %> </h5>
+<h5> TANGGAL LAHIR :  <%= @instruktur.tgl_lahir %></h5>
+<h5> ALAMAT        :  <%= @instruktur.alamat %> </h5>
+<h5> NOMOR TELPON  :  <%= @instruktur.no_tlp %></h5>
+<br>
+
+<%= link_to 'kembali', instrukturs_path, {class: 'btn btn-default'} %>
+</body>

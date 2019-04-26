@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nama: MyString
+  jenis_kelamin: 1
+  tmp_lahir: MyString
+  tgl_lahir: 2019-03-06
+  alamat: MyText
+  no_tlp: MyString
+
+two:
+  nama: MyString
+  jenis_kelamin: 1
+  tmp_lahir: MyString
+  tgl_lahir: 2019-03-06
+  alamat: MyText
+  no_tlp: MyString

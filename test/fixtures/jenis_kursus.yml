@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jenis_kursus: MyString
+  lama_belajar: 1
+  tarif: 1
+
+two:
+  jenis_kursus: MyString
+  lama_belajar: 1
+  tarif: 1

@@ -1,0 +1,30 @@
+<%= form_with model: @instruktur do |f| %>
+  <div class="container">
+      <div class="form-group">
+        <%= f.label :nama, 'Nama Instruktur :', class: 'control-label' %>
+        <%= f.text_field :nama, placeholder: "Nama Instruktur", class: 'form-control', required: true %>
+     </div>
+     <div class="form-group">
+        <%= f.label :jenis_kelamin, 'Jenis Kelamin :', class: 'col-form-label' %><br>
+        <%= f.radio_button :jenis_kelamin, 1 %> <%= f.label "Laki-Laki", class: 'form-check' %>
+        <%= f.radio_button :jenis_kelamin, 2 %> <%= f.label "Perempuan", class: 'form-check' %>
+     </div>
+     <div class="form-group">
+        <%= f.label :tmp_lahir, 'Tempat Lahir :', class: 'control-label' %>
+        <%= f.text_field :tmp_lahir, placeholder: "Tempat Lahir", class: 'form-control', required: true %>
+     </div>
+     <div class="form-group">
+        <%= f.label :tgl_lahir, 'Tanggal Lahir :', class: 'control-label' %>
+        <%= f.date_field :tgl_lahir, min: Date.new(1980, 07, 03), max: Date.today, class: 'form-control', required: true %>
+     </div>
+     <div class="form-group">
+        <%= f.label :alamat, 'Alamat :', class: 'control-label' %>
+        <%= f.text_field :alamat, placeholder: "Alamat", class: 'form-control',required: true %>
+     </div>
+     <div class="form-group">
+        <%= f.label :no_tlp, 'Nomor Telpon :', class: 'control-label' %>
+        <%= f.text_field :no_tlp, placeholder: "No Telpon", class: 'form-control', required: true %>
+     </div>
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+  <% end %>
+</div>
