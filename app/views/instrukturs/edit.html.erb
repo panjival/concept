@@ -27,7 +27,7 @@
         <%= f.label :no_tlp, 'Nomor Telpon :', class: 'control-label' %>
         <%= f.text_field :no_tlp, placeholder: "No Telpon", class: 'form-control', required: true %>
      </div>
-        <%= f.submit 'Save', class: 'btn btn-primary' %>
+        <%= f.button 'Save', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Loading..."} %>
   <% end %>
 </div>
 </body>

@@ -25,7 +25,7 @@
 			<%= f.number_field :tarif, placeholder: "Tarif", class: 'form-control',:required => true %>
 		</div>
 			<%= link_to 'kembali', jenis_kursus_path, {class: 'btn btn-default'} %>
-			<%= f.submit 'Save', class: 'btn btn-primary' %>
+			<%= f.button 'Save', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Loading..."} %>
 	<% end %>
 </div>
 </body>

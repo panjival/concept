@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'reports/', to: 'reports#index'
   get 'reports/murid', to: 'reports#murid', as: 'reportsmurid'
 
+  # untuk error pages-----------------------
   get "/442", :to => "errors#unacceptable"
   get "/400", :to => "errors#bad_request"
   get "/401", :to => "errors#unauthorized"
@@ -71,4 +72,5 @@ Rails.application.routes.draw do
   get "/508", :to => "errors#loop_detected"
   get "/510", :to => "errors#not_extended"
   get "/511", :to => "errors#network_authentication_required"
+  # akhir error pages ------------------------
 end

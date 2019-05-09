@@ -32,7 +32,7 @@
       <%= f.label "Nomor Telpon", class: 'control-label' %>
       <%= f.number_field :no_tlp, class: "form-control", placeholder: "Nomor Telpon", required: true %>
    </div>
-      <%= f.submit class: 'btn btn-primary', role: 'button' %>
+      <%= f.button class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Loading..."} %>
    <% end %>
 </div>
 </body>

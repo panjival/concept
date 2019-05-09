@@ -13,7 +13,7 @@
 <%# end search %>
 
 <div class="sright">
-    <%= link_to 'ADD MURID', muridsnew_path, class: 'btn btn-primary', role: 'button' %>
+    <%= link_to 'ADD MURID', muridsnew_path, class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Loading..."} %>
 </div>
 
 <%# <div class="container"> %>
@@ -47,10 +47,10 @@
         <% end %>
     </tr>
 <% end %>
-<%= will_paginate @murids, renderer: BootstrapPagination::Rails %>
+
 </tbody>
 </table>
-
+<%= will_paginate @murids, renderer: BootstrapPagination::Rails %>
 <%# </div> %>
 </div>
 </body>

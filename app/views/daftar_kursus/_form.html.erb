@@ -13,6 +13,6 @@
         <%= f.collection_select(:instruktur_id, Instruktur.all, :id, :nama, { :prompt => 'Pilih Instruktur', :selected => @daftar_kursu.instruktur_id}, { class: 'form-control'}) %>       
    </div>
         <%= link_to 'kembali', daftar_kursus_path, {class: 'btn btn-default'} %>
-        <%= f.submit 'Save', class: 'btn btn-primary' %>
+        <%= f.button 'Save', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Loading..."} %>
  <% end %>
 </div>
