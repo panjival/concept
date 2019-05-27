@@ -2,10 +2,16 @@ class MuridsController < ApplicationController
   before_action :authorize, only: [:edit, :destroy]
   
   def index
+    # @murids = Murid.order(params[:sort] + " " + params[:direction])
     @murids = if params[:term]
       Murid.where("lower(nama) LIKE ?", "%#{params[:term].downcase}%").order('id DESC').paginate(:page => params[:page], per_page: 5)
     else
       Murid.paginate(:page => params[:page], per_page: 5)
+    end
+    respond_to do |format|
+      format.html
+      format.csv { send_data @murids.to_csv, filename: "murid-#{Date.today}.csv" }
+      format.xls { send_data @murids.to_csv(col_sep: "\t"),  filename: "murid-#{Date.today}.xls" }
     end
   end
 
@@ -29,7 +35,7 @@ class MuridsController < ApplicationController
   def create
     @murid = Murid.create(murid_params)
     
-      redirect_to murids_path, success: "Berhasil disimpan"
+    redirect_to murids_path, success: "Berhasil disimpan"
   end
 
   def edit
@@ -46,8 +52,7 @@ class MuridsController < ApplicationController
   def destroy
     @murid = Murid.find(params[:id])
     @murid.destroy
-    redirect_to murids_path, info: "Berhasil dihapus"
-   
+    redirect_to murids_path, success: "Berhasil dihapus"
   end
 
   private

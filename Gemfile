@@ -3,6 +3,28 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+
+gem 'jquery', '~> 0.0.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'jquery-ui-rails'
+gem 'jquery-turbolinks', '~> 2.1'
+gem 'twitter-bootstrap-rails', '~> 4.0'
+# gem 'therubyracer', platforms: :ruby
+# gem 'turbolinks', '~> 5.2'
+gem 'bcrypt', '~> 3.1.7'
+gem 'bootstrap-sass'
+gem 'bootstrap_jt', '~> 0.1.0'
+gem 'font-awesome-sass', '~> 5.6.1'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
+gem 'prawn'
+gem 'responders'
+gem 'prawn-table'
+gem 'map', '~> 6.6'
+gem 'rename'
+# gem 'bootstrap', '~> 4.0.0'
+# gem 'rails-assets-datatables', source: 'https://rails-assets.org'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
@@ -52,20 +74,7 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
-gem 'jquery', '~> 0.0.1'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
-gem 'jquery-ui-rails'
-gem 'bcrypt', '~> 3.1.7'
-gem 'bootstrap-sass'
-gem 'bootstrap_jt', '~> 0.1.0'
-gem 'font-awesome-sass', '~> 5.6.1'
-gem 'will_paginate', '~> 3.1.0'
-gem 'will_paginate-bootstrap'
-gem 'prawn'
-gem 'responders'
-gem 'prawn-table'
-gem 'map', '~> 6.6'
-gem 'rename'
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -13,11 +13,15 @@
 <%# end search %>
 
 <div class="sright">
-    <%= link_to 'ADD MURID', muridsnew_path, class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Loading..."} %>
+    <%= link_to 'ADD MURID', muridsnew_path, class: 'btn btn-primary'%>
 </div>
 
+Download:
+<%= link_to "CSV", murids_path(format: "csv")%> |
+<%= link_to "Excel", murids_path(format: "xls")%>
+
 <%# <div class="container"> %>
-<div class="table-responsive-sm">
+<%# <div class="table-responsive"> %>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -29,7 +33,7 @@
     </tr>
   </thead>
   <tbody>
-  <% @murids.each_with_index do |f,index| %>
+  <% @murids.each_with_index do |f, index| %>
     <tr class="text-capitalize">
         <th scope="row"><%= index +1 %></th>
         <td><%= f.nama %></td>
@@ -39,19 +43,24 @@
         <td><%= f.no_tlp %></td>
         <td><%= link_to 'show', f, class:'btn btn-primary' %></td> 
         <%# memunculkan dan menghilangkan tombol edit dan hapus %>
-        <% if current_user %>
-          <td><%= link_to 'edit', muridsedit_path(f), class:'btn btn-warning' %></td>
-          <td><%= link_to 'delete', muridsdelete_path(f), method: :delete,
-          data: { confirm: 'Are you sure?'}, class:'btn btn-danger' %></td>
-        <% else %>
-        <% end %>
+          <% if current_user %>
+            <td><%= link_to 'edit', muridsedit_path(f), class:'btn btn-warning' %></td>
+            <td><%= link_to 'delete', muridsdelete_path(f), method: :delete,
+            data: { confirm: 'yakin ingin menghapus?'}, class:'btn btn-danger' %></td>
+          <% else %>
+          <% end %>
     </tr>
-<% end %>
-
-</tbody>
+  <% end %>
+  </tbody>
 </table>
-<%= will_paginate @murids, renderer: BootstrapPagination::Rails %>
-<%# </div> %>
-</div>
+<%
+=begin%>
+ <%= will_paginate @murids, renderer: BootstrapPagination::Rails %> 
+<%
+=end%>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
