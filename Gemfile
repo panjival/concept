@@ -54,10 +54,9 @@ group :test do
 end
 gem 'jquery', '~> 0.0.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
-gem 'jquery-ui-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
-gem 'bootstrap_jt', '~> 0.1.0'
+gem 'bootstrap_jt', '~> 0.1.0' 
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'

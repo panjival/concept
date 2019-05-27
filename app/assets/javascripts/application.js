@@ -12,13 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require rails-ujs
-//= require turbolinks
 //= require bootstrap
 //= require bootstrap.min
 //= require activestorage
 //= require bootstrap-sprockets
-//= require bootstrap
 //= require npm
 //= require turbolinks
 //= require adminlte
