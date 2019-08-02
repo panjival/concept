@@ -1,11 +1,7 @@
 class JenisKursusController < ApplicationController
   before_action :authorize
   def index
-    @jenis_kursus = if params[:term]
-      JenisKursu.where('lower(jenis_kursus) LIKE ?', "%#{params[:term].downcase}%").order('id DESC')
-    else
-      JenisKursu.all
-    end
+    @jenis_kursus = JenisKursu.all
   end
 
   def show
@@ -19,7 +15,7 @@ class JenisKursusController < ApplicationController
   def create
     @jenis_kursu = JenisKursu.create(jenis_params)
 
-    redirect_to @jenis_kursu
+    redirect_to jenis_kursus_path, success: "Berhasil disimpan"
   end
 
   def edit
@@ -30,16 +26,16 @@ class JenisKursusController < ApplicationController
     @jenis_kursu = JenisKursu.find(params[:id])
     @jenis_kursu.update(jenis_params)
 
-    redirect_to jenis_kursu_path
+    redirect_to jenis_kursus_path, info: "data berhasil di update"
   end
 
   def destroy
     @jenis_kursu = JenisKursu.find(params[:id])
     if @jenis_kursu.destroy
 
-    redirect_to jenis_kursus_path
+    redirect_to jenis_kursus_path, info: "data berhasil di hapus"
     else
-      redirect_to jenis_kursus_path, danger: "tidak bisa dihapus"
+      redirect_to jenis_kursus_path, danger: "data tidak dapat dihapus, karena sudah terdaftar"
   end
 end
 

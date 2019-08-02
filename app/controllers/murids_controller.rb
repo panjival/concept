@@ -1,25 +1,12 @@
 class MuridsController < ApplicationController
-  before_action :authorize, only: [:edit, :destroy]
+  before_action :authorize,      only: [:index, :show, :edit, :update, :destroy]
   
   def index
-    @murids = if params[:term]
-      Murid.where("lower(nama) LIKE ?", "%#{params[:term].downcase}%").order('id DESC').paginate(:page => params[:page], per_page: 5)
-    else
-      Murid.paginate(:page => params[:page], per_page: 5)
-    end
+    @murids = Murid.all
   end
 
   def show
     @murid = Murid.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = MuridPdf.new(@murid)
-        send_data pdf.render, filename: "murid_#{@murid.nama}.pdf",
-                              type: "application/pdf",
-                              disposition: "inline"
-      end
-    end
   end
 
   def new
@@ -29,7 +16,7 @@ class MuridsController < ApplicationController
   def create
     @murid = Murid.create(murid_params)
     
-      redirect_to murids_path, success: "Berhasil disimpan"
+    redirect_to request.referrer, success: "Berhasil disimpan"
   end
 
   def edit
@@ -45,13 +32,15 @@ class MuridsController < ApplicationController
 
   def destroy
     @murid = Murid.find(params[:id])
-    @murid.destroy
+    if @murid.destroy
     redirect_to murids_path, info: "Berhasil dihapus"
-   
+    else
+      redirect_to murids_path, danger: "data tidak dapat dihapus, karena sudah terdaftar"
+    end
   end
 
   private
   def murid_params
-    params.require(:murid).permit(:nama, :jenis_kelamin, :tmp_lahir, :tgl_lahir, :alamat, :no_tlp, :jadwal)
+    params.require(:murid).permit(:nama, :jenis_kelamin, :tmp_lahir, :tgl_lahir, :alamat, :no_tlp, :jadwal, :nama_pgl, :kode_pos,:sekolah, :kelas, :kewarganegaraan, :laporan, :agama, :hobi, :ket_kerja_atau_belajar, :nama_ortu, :kependudukan_ortu, :alamat_ortu, :program, :mulai_belajar, :golongan_darah, :panggilan)
   end
 end

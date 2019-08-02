@@ -13,10 +13,34 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require bootstrap.min
-//= require activestorage
-//= require bootstrap-sprockets
-//= require npm
-//= require turbolinks
+// require bootstrap.min
+// require bootstrap-sprockets
+//= require jquery-ui/widgets/datepicker
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+
+// require turbolinks
 //= require adminlte
 //= require_tree .
+
+$(document).ready(function() {
+    $('#murid').DataTable({
+        "scrollY": 400,
+        "scrollX": true,
+        "columnDefs": [{
+                "targets": [2],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [3],
+                "visible": false
+            }
+        ]
+
+
+    });
+    $('#jkursus').DataTable({});
+    $('#instruktur').DataTable({});
+    $('#dkursus').DataTable({});
+});

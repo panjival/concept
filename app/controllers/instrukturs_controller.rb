@@ -35,8 +35,11 @@ class InstruktursController < ApplicationController
 
   def destroy
     @instruktur = Instruktur.find(params[:id])
-    @instruktur.destroy
-    redirect_to instrukturs_path
+    if @instruktur.destroy
+      redirect_to instrukturs_path, info: "data berhasil di hapus"
+    else
+      redirect_to instrukturs_path, danger: "data tidak dapat dihapus, karena sudah terdaftar"
+    end
   end
 
   private

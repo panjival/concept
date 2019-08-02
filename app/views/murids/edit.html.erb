@@ -2,38 +2,114 @@
 <h1>Edit Murid</h1>
 <div class="container">
 <%= form_for @murid do |f| %>
+<div class="container">
    <div class="form-group">
-       <%= f.label "Nama Murid", class: 'control-label' %>
-       <%= f.text_field :nama, class: "form-control", placeholder: "Nama Murid", required: true %>
+      <%= f.label :panggilan, 'Title', class: 'col-form-label' %><br>
+      <div class="checkbox-inline">
+	   <%= f.radio_button :panggilan, "Mr" %> <%= f.label "Mr" %>
+      <%= f.radio_button :panggilan, "Mrs" %> <%= f.label "Mrs" %>
+      <%= f.radio_button :panggilan, "Miss" %> <%= f.label "Miss" %>
+      </div>
    </div>
    <div class="form-group">
-      <%= f.label :jenis_kelamin, 'Jenis Kelamin :', class: 'col-form-label' %><br>
+      <%= f.label "Full Name", class: 'control-label' %>
+      <%= f.text_field :nama, class: "form-control", id: "fnama", placeholder: "Full Name", required: true %>
+   </div>
+   <div class="form-group">
+      <%= f.label "Nick Name", class: 'control-label' %>
+      <%= f.text_field :nama_pgl, class: "form-control", id: "fnama", placeholder: "Nick Name", required: true %>
+   </div>
+   <div class="form-group">
+      <%= f.label "Place of Birth", class: 'control-label' %>
+      <%= f.text_field :tmp_lahir, class: "form-control",id: "ftmp", placeholder: "Tempat Lahir", required: true %>
+   </div>
+   <div class="form-group">
+      <%= f.label "Date of Birth", class: 'control-label' %>
+      <%# untuk membatasi tanggal %>
+      <%= f.text_field :tgl_lahir, min: Date.new(1994, 07, 01), max: Date.today, class: "form-control", required: true %>
+   </div>
+   <%# membuat radio button %>
+   <div class="form-group">
+      <%= f.label :jenis_kelamin, 'Sex', class: 'col-form-label' %><br>
 	   <%= f.radio_button :jenis_kelamin, 1 %> <%= f.label "Laki-Laki", class: 'form-check' %>
       <%= f.radio_button :jenis_kelamin, 2 %> <%= f.label "Perempuan", class: 'form-check' %>
    </div>
    <div class="form-group">
-      <%= f.label "Tempat Lahir", class: 'control-label' %>
-      <%= f.text_field :tmp_lahir, class: "form-control", placeholder: "Tempat Lahir", required: true %>
-   </div>
-   <div class="form-group">
-      <%= f.label "Tanggal Lahir", class: 'control-label' %>
-      <%# untuk membatasi tanggal %>
-      <%= f.date_field :tgl_lahir, min: Date.new(1994, 07, 01), max: Date.today, class: "form-control", required: true %>
-   </div>
-   <div class="form-group">
-			<%= f.label "Jadwal", class: 'control-label' %>
-			<%= f.select :jadwal, (["Senin & Kamis", "Senin & Selasa", "Selasa & Jumat", "Rabu & Sabtu"]), class: 'form-control', :required => true %>
+			<%= f.label "Blood Group", class: 'control-label' %>
+			<%= f.select(:golongan_darah, ([["A"], ["B"], ["AB"], ["O"], ["-"]]), {:include_blank => '-- Select One --'}, {class: 'form-control'}) %>
 	</div>
    <div class="form-group">
-      <%= f.label "Alamat", class: 'control-label' %>
-      <%= f.text_field :alamat, class: "form-control", placeholder: "Alamat", required: true %>
+      <%= f.label "Home Address", class: 'control-label' %>
+      <%= f.text_area :alamat, class: "form-control", placeholder: "Home Address" %>
    </div>
    <div class="form-group">
-      <%= f.label "Nomor Telpon", class: 'control-label' %>
-      <%= f.number_field :no_tlp, class: "form-control", placeholder: "Nomor Telpon", required: true %>
+      <%= f.label "Post Code", class: 'control-label' %>
+      <%= f.number_field :kode_pos, class: "form-control", placeholder: "Post Code" %>
    </div>
-      <%= f.submit class: 'btn btn-primary', role: 'button' %>
-   <% end %>
+   <div class="form-group">
+      <%= f.label "Citizenship", class: 'control-label' %>
+      <%= f.text_field :kewarganegaraan, class: "form-control", placeholder: "Citizenship", required: true %>
+   </div>
+   <div class="form-group">
+      <%= f.label "School", class: 'control-label' %>
+      <%= f.text_field :sekolah, class: "form-control", placeholder: "School" %>
+   </div>
+   <div class="form-group">
+      <%= f.label "Class", class: 'control-label' %>
+      <%= f.text_field :kelas, class: "form-control", placeholder: "Class" %>
+   </div>
+   <div class="form-group">
+      <%= f.label "Phone", class: 'control-label' %>
+      <%= f.number_field :no_tlp, class: "form-control", placeholder: "Phone" %>
+   </div>
+   <div class="form-group">
+      <%= f.label "Report Mark", class: 'control-label' %>
+      <%= f.text_field :laporan, class: "form-control", placeholder: "Report Mark" %>
+   </div>
+   <div class="form-group">
+      <%= f.label "Religion", class: 'control-label' %>
+      <%= f.text_field :agama, class: "form-control", placeholder: "Religion", required: true %>
+   </div>
+   <div class="form-group">
+      <%= f.label "Hobby", class: 'control-label' %>
+      <%= f.text_field :hobi, class: "form-control", placeholder: "Hobby" %>
+   </div>
+   <div class="form-group">
+      <p>Name and address of your place of employment or study</p>
+      <%= f.label "e. g.Company / University", class: 'control-label' %>
+      <%= f.text_field :ket_kerja_atau_belajar, class: "form-control", placeholder: "e. g.Company / University" %>
+   </div>
+   <div class="form-group">
+   <p>if you are under 21, please fill out these following</p>
+      <%= f.label "Paret's/Guardian's Name", class: 'control-label' %>
+      <%= f.text_field :nama_ortu, class: "form-control", placeholder: "Paret's/Guardian's Name" %>
+   </div>
+   <div class="form-group">
+      <%= f.label "Occupation", class: 'control-label' %>
+      <%= f.text_field :kependudukan_ortu, class: "form-control", placeholder: "Occupation" %>
+   </div>
+   <div class="form-group">
+      <%= f.label "Home Address", class: 'control-label' %>
+      <%= f.text_area :alamat_ortu, class: "form-control", rows:"3", placeholder: "Home Address" %>
+   </div>
+   <div class="form-group">
+			<%= f.label "Select the programme you wish to attend", id: 'fjadwal', class: 'control-label' %>
+			<%= f.select(:program, options_for_select([["(GEP) General English Programme"], ["(CEP) Conversation English Programme"], ["(SEP) Specialized English Programme"]]), {:include_blank => '-- Select One --'}, {class: "form-control"}) %>
+	</div>
+   <div class="form-group">
+			<%= f.label "Jadwal", id: 'fjadwal', class: 'control-label' %>
+			<%= f.select(:jadwal, [["Senin & Kamis"], ["Senin & Selasa"], ["Selasa & Jumat"], ["Rabu & Sabtu"]], {:include_blank => '-- Select One --'}, {:required => true, :class => 'form-control'}) %>
+	</div>
+   <div class="form-group">
+      <%= f.label "Date to start your study", class: 'control-label' %>
+      <%# untuk membatasi tanggal %>
+      <%= f.text_field :mulai_belajar, min: Date.today, max: Date.new(3000, 01, 01), class: "form-control", required: true %>
+   </div>
+   <%= link_to 'Back', request.referrer, {class: 'btn btn-default'} %>
+   <%= f.submit 'Save', class: 'btn btn-primary' %>
+</div>
+
+<% end %>
 </div>
 </body>
    

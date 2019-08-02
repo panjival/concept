@@ -20,8 +20,6 @@ Rails.application.routes.draw do
   put 'murids/:id', to:'murids#update'
   get 'murids/:id', to:'murids#show'
 
-
-
   get 'jenis_kursus', to: 'jenis_kurus#index', as: 'jkindex'
   get 'instrukturs', to: 'instrukturs#index', as: 'insindex'
   get 'daftar_kurus', to: 'daftar_kursus#index', as: 'daftarindex'

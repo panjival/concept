@@ -1,6 +1,7 @@
-<body class="jenisk">
-<h4> Jenis Kursus :  <%= @jenis_kursu.jenis_kursus %> </h4>
-<h5> Lama Belajar :  <%= @jenis_kursu.lama_belajar==1 ? '1 Bulan' :
+<div class="container show">
+    <div class="row">
+        <div class="col-md-2"><strong>Jenis Kursus</strong></div>
+        <div class="col-md-10"><%= @jenis_kursu.lama_belajar==1 ? '1 Bulan' :
 						(@jenis_kursu.lama_belajar==2 ? '2 Bulan' :
 						(@jenis_kursu.lama_belajar==3 ? '3 Bulan' :
 						(@jenis_kursu.lama_belajar==4 ? '4 Bulan' :
@@ -11,9 +12,12 @@
 						(@jenis_kursu.lama_belajar==9 ? '9 Bulan' :
 						(@jenis_kursu.lama_belajar==10 ? '10 Bulan' :
 						(@jenis_kursu.lama_belajar==11 ? '11 Bulan' :
-						(@jenis_kursu.lama_belajar==12 ? '12 Bulan' : 'Kosong'))))))))))) %></h5>
-<h5> Tarif        :  <%= @jenis_kursu.tarif %></h5>
-<br>
+						(@jenis_kursu.lama_belajar==12 ? '12 Bulan' : 'Kosong'))))))))))) %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Tarif</strong></div>
+        <div class="col-md-10"><%= @jenis_kursu.tarif %></div>
+    </div>
 
-<%= link_to 'kembali', jenis_kursus_path, {class: 'btn btn-default'} %>
-</body>
+    <%= link_to 'kembali', jenis_kursus_path, {class: 'btn btn-default'} %>
+</div>

@@ -21,9 +21,6 @@ ActiveRecord::Schema.define(version: 2019_03_18_061221) do
     t.integer "instruktur_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "star_date"
-    t.date "end_date"
-    t.string "status"
   end
 
   create_table "instrukturs", force: :cascade do |t|
@@ -54,6 +51,22 @@ ActiveRecord::Schema.define(version: 2019_03_18_061221) do
     t.string "no_tlp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "jadwal"
+    t.string "nama_pgl"
+    t.integer "kode_pos"
+    t.string "sekolah"
+    t.string "kelas"
+    t.string "kewarganegaraan"
+    t.string "laporan"
+    t.string "agama"
+    t.string "hobi"
+    t.string "ket_kerja_atau_belajar"
+    t.string "nama_ortu"
+    t.string "kependudukan_ortu"
+    t.string "alamat_ortu"
+    t.string "program"
+    t.date "mulai_belajar"
+    t.string "golongan_darah"
   end
 
   create_table "users", force: :cascade do |t|

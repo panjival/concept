@@ -1,12 +1,30 @@
-<body class="instruktur">
-<h4> NAMA          :  <%= @instruktur.nama %> </h4>
-<h5> JENIS KELMAIN :  <%= @instruktur.jenis_kelamin==1 ? 'Laki-laki' :
-                          (@instruktur.jenis_kelamin==2 ? 'Perempuan' : 'Kosong') %></h5>
-<h5> TEMPAT LAHIR  :  <%= @instruktur.tmp_lahir %> </h5>
-<h5> TANGGAL LAHIR :  <%= @instruktur.tgl_lahir %></h5>
-<h5> ALAMAT        :  <%= @instruktur.alamat %> </h5>
-<h5> NOMOR TELPON  :  <%= @instruktur.no_tlp %></h5>
-<br>
+<div class="container show">
+    <div class="row">
+        <div class="col-md-2"><strong>NAMA</strong></div>
+        <div class="col-md-10"><%= @instruktur.nama %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>JENIS KELMAIN</strong></div>
+        <div class="col-md-10"><%= @instruktur.jenis_kelamin==1 ? 'Laki-laki' :
+                                (@instruktur.jenis_kelamin==2 ? 'Perempuan' : 'Kosong') %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>TEMPAT LAHIR</strong></div>
+        <div class="col-md-10"><%= @instruktur.tmp_lahir %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>TANGGAL LAHIR</strong></div>
+        <div class="col-md-10"><%= @instruktur.tgl_lahir %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>ALAMAT</strong></div>
+        <div class="col-md-10"><%= @instruktur.alamat %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>NOMOR TELPON</strong></div>
+        <div class="col-md-10"><%= @instruktur.no_tlp %></div>
+    </div>
 
-<%= link_to 'kembali', instrukturs_path, {class: 'btn btn-default'} %>
-</body>
+    <%= link_to 'kembali', instrukturs_path, {class: 'btn btn-default'} %>
+</div>
+

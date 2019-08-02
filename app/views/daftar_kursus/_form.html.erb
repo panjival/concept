@@ -1,5 +1,5 @@
 <div class="container">
- <%= form_with model: @daftar_kursu do |f| %>
+ <%= form_for @daftar_kursu do |f| %>
    <div class="form-group">
         <%= f.label "Nama Murid" %>
         <%= f.collection_select(:murid_id, Murid.all, :id, :nama, { :prompt => 'Pilih Murid', :selected => @daftar_kursu.murid_id}, { class: 'form-control'}) %>   

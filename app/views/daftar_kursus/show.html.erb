@@ -1,8 +1,16 @@
-<body class="dk">
-<h4> Nama Murid      :  <%= Murid.find(@daftar_kursu.murid_id).nama %></h4>
-<h5> Jenis Kursus    :  <%= JenisKursu.find(@daftar_kursu.jenis_kursu_id).jenis_kursus %></h5>
-<h5> Nama Instruktur :  <%= Instruktur.find(@daftar_kursu.instruktur_id).nama %></h5>
-<br>
+<div class="container show">
+    <div class="row">
+        <div class="col-md-2"><strong>Nama Murid</strong></div>
+        <div class="col-md-10"><%= Murid.find(@daftar_kursu.murid_id).nama %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Jenis Kursus</strong></div>
+        <div class="col-md-10"><%= JenisKursu.find(@daftar_kursu.jenis_kursu_id).jenis_kursus %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Nama Instruktur</strong></div>
+        <div class="col-md-10"><%= Instruktur.find(@daftar_kursu.instruktur_id).nama %></div>
+    </div>
 
-<%= link_to 'kembali', daftar_kursus_path, {class: 'btn btn-default'} %>
-</body>
+    <%= link_to 'kembali', daftar_kursus_path, {class: 'btn btn-default'} %>
+</div>

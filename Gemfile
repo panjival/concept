@@ -54,6 +54,8 @@ group :test do
 end
 gem 'jquery', '~> 0.0.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'jquery-ui-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'bootstrap_jt', '~> 0.1.0' 

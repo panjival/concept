@@ -1,6 +1,6 @@
 <body class="jenisk">
 <div class="container">
-	<%= form_with model: @jenis_kursu, html: {class: 'form-horizontal'} do |f| %>
+	<%= form_for @jenis_kursu do |f| %>
 		<div class="form-group">
 			<%= f.label "Jenis Kursus", class: 'control-label' %>
 			<%= f.text_field :jenis_kursus, placeholder: "Jenis Kursus", class: 'form-control',:required => true %>
@@ -25,7 +25,7 @@
 			<%= f.number_field :tarif, placeholder: "Tarif", class: 'form-control',:required => true %>
 		</div>
 			<%= link_to 'kembali', jenis_kursus_path, {class: 'btn btn-default'} %>
-			<%= f.submit 'Save', class: 'btn btn-primary' %>
+			<%= f.submit class: 'btn btn-primary', role: 'button' %>
 	<% end %>
 </div>
 </body>

@@ -1,34 +1,37 @@
 <body class="dk">
 <h1 class="font-weight-bold"> DAFTAR KURSUS </h1>
 
- <div class="sright">
+<div class="sright pull-right">
   <%= link_to 'ADD DAFTAR', new_daftar_kursu_path, class:'btn btn-primary' %>
- </div>
+</div>
 
- <div class="container">
-  <table class="table">
-   <thead class="thead-dark">
+<div class="container">
+  <table id="dkursus" class="display" style="width:100%">
+  <thead>
     <tr>
       <th scope="col">NO</th>
       <th scope="col">NAMA MURID</th>
       <th scope="col">JENIS KURSUS</th>
       <th scope="col">NAMA INSTRUKTUR</th>
+      <th>AKSI</th>
+			<th>AKSI</th>
+			<th>AKSI</th>
     </tr>
-   </thead>
-   <tbody>
-	  <% @daftar_kursus.each_with_index do |f,index| %>
+  </thead>
+  <tbody>
+    <% @daftar_kursus.each_with_index do |f,index| %>
       <tr>
-       <th scope="row"><%= index +1 %></th>
+      <th scope="row"><%= index +1 %></th>
         <td><%= Murid.find(f.murid_id).nama %></td>
         <td><%= JenisKursu.find(f.jenis_kursu_id).jenis_kursus %></td>
         <td><%= Instruktur.find(f.instruktur_id).nama %></td>
         
         <td><%= link_to 'show', f, class:'btn btn-info'%></td>
         <td><%= link_to 'edit', edit_daftar_kursu_path(f), class:'btn btn-warning' %></td>
-        <td><%= link_to 'delete', f, method: :delete, data: { confirm: 'Are you sure?'}, class:'btn btn-danger' %></td> 
+        <td><%= link_to 'delete', f, method: :delete, data: { confirm: 'apakah anda yakin ingin menghapus data ini?'}, class:'btn btn-danger' %></td> 
       </tr>
     <% end %>
-   </tbody>
+  </tbody>
   </table>
- </div>
- </body>
+</div>
+</body>

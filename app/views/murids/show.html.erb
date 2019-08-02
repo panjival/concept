@@ -1,14 +1,93 @@
-<body class="murid">
-<h4> NAMA          :  <%= @murid.nama %> </h4>
-<h5> JENIS KELMAIN :  <%= @murid.jenis_kelamin==1 ? 'Laki-laki' :
-                          (@murid.jenis_kelamin==2 ? 'Perempuan' : 'Kosong') %></h5>
-<h5> TEMPAT LAHIR  :  <%= @murid.tmp_lahir %> </h5>
-<h5> TANGGAL LAHIR :  <%= @murid.tgl_lahir %></h5>
-<h5> JADWAL        :  <%= @murid.jadwal %> </h5>
-<h5> ALAMAT        :  <%= @murid.alamat %> </h5>
-<h5> NOMOR TELPON  :  <%= @murid.no_tlp %></h5>
-<br>
-
-<%= link_to 'kembali', murids_path, {class: 'btn btn-default'} %>
-<%# <%= link_to "Cetak", murid_path(@murid, format: "pdf") %>
-</body>
+<div class="container show">
+<div class="row">
+        <div class="col-md-2"><strong>Title</strong></div>
+        <div class="col-md-10"><%= @murid.panggilan %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Full Name</strong></div>
+        <div class="col-md-10"><%= @murid.nama %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Nick Name</strong></div>
+        <div class="col-md-10"><%= @murid.nama_pgl %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Place of Birth</strong></div>
+        <div class="col-md-10"><%= @murid.tmp_lahir %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Date of Birth</strong></div>
+        <div class="col-md-10"><%= @murid.tgl_lahir %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Sex</strong></div>
+        <div class="col-md-10"><%= @murid.jenis_kelamin==1 ? 'Laki-laki' :
+                                    (@murid.jenis_kelamin==2 ? 'Perempuan' : 'Kosong') %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Blood Group</strong></div>
+        <div class="col-md-10"><%= @murid.golongan_darah %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Home Address</strong></div>
+        <div class="col-md-10"><%= @murid.alamat %></div>
+    </div>
+     <div class="row">
+        <div class="col-md-2"><strong>Post Code</strong></div>
+        <div class="col-md-10"><%= @murid.kode_pos %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Citizenship</strong></div>
+        <div class="col-md-10"><%= @murid.kewarganegaraan %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>School</strong></div>
+        <div class="col-md-10"><%= @murid.sekolah %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Class</strong></div>
+        <div class="col-md-10"><%= @murid.kelas %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Phone</strong></div>
+        <div class="col-md-10"><%= @murid.no_tlp %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Report_Mark</strong></div>
+        <div class="col-md-10"><%= @murid.laporan %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Religion</strong></div>
+        <div class="col-md-10"><%= @murid.agama %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Hobby</strong></div>
+        <div class="col-md-10"><%= @murid.hobi%></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Company/University</strong></div>
+        <div class="col-md-10"><%= @murid.ket_kerja_atau_belajar %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Parent's/Guardian Name's</strong></div>
+        <div class="col-md-10"><%= @murid.nama_ortu %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Occupation</strong></div>
+        <div class="col-md-10"><%= @murid.kependudukan_ortu %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Home Address Parent</strong></div>
+        <div class="col-md-10"><%= @murid.alamat_ortu %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Program Attend</strong></div>
+        <div class="col-md-10"><%= @murid.program %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><strong>Date To Start Study</strong></div>
+        <div class="col-md-10"><%= @murid.jadwal %></div>
+    </div>
+     <hr>
+    <%= link_to 'kembali', murids_path, {class: 'btn btn-info'} %>
+</div>
